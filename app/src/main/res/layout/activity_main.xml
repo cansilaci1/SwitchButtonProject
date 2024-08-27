@@ -10,7 +10,7 @@
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleTeamSpirit"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:checked="false"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleConcentration"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toggleTeamSpirit"
         app:layout_constraintStart_toStartOf="@id/toggleTeamSpirit"
         app:layout_constraintEnd_toEndOf="@id/toggleTeamSpirit"
@@ -29,7 +29,7 @@
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleLoyalty"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toggleConcentration"
         app:layout_constraintStart_toStartOf="@id/toggleConcentration"
         app:layout_constraintEnd_toEndOf="@id/toggleConcentration"
@@ -38,7 +38,7 @@
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleDiscipline"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toggleLoyalty"
         app:layout_constraintStart_toStartOf="@id/toggleLoyalty"
         app:layout_constraintEnd_toEndOf="@id/toggleLoyalty"
@@ -47,8 +47,7 @@
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleEgo"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:enabled="false"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toggleDiscipline"
         app:layout_constraintStart_toStartOf="@id/toggleDiscipline"
         app:layout_constraintEnd_toEndOf="@id/toggleDiscipline"
