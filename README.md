@@ -9,21 +9,17 @@ Bu proje, kullanıcıların farklı switchler aracılığıyla çeşitli işlevl
 - **Material Components**: Modern UI bileşenleri sağlamak için kullanıldı.
 - **ViewBinding**: UI bileşenlerine güvenli ve hızlı erişim.
 
-## Nasıl Kurulur
 
 1. Depoyu klonlayın:
    ```bash
-   git clone https://github.com/kullanici_adi/switchbutton-project.git
+   git clone https://github.com/cansilaci1/SwitchButtonProject.git
 
 
 #### 5. Uygulama Hakkında
-```md
 
 Uygulama, kullanıcıların belirli switch'leri açıp kapatmasıyla alt kısımda dinamik olarak **BottomNavigationView** menüsüne öğeler ekler.
 Her switch'in aktif olmasıyla birlikte ilgili menü ikonu eklenir ve kullanıcı ilgili fragmenta yönlendirilir.
 
 
 ## Ekran Görüntüleri
-(https://github.com/user-attachments/assets/4d421156-f829-42d4-bdb5-1e32764b2b40)
-
-
+![Açılış Ekranı](https://github.com/user-attachments/assets/613eaa06-a4fd-42a2-90f4-678804a79a70)
