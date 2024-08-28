@@ -36,12 +36,12 @@ class MainActivity : AppCompatActivity() {
         binding.toggleEgo.setOnCheckedChangeListener { _, isChecked ->
             isEgoEnabled = isChecked
             if (isChecked) {
-                // Ego is enabled, clear BottomNavigationView and disable other switches
-                toggleOtherSwitches(false)
+                // Ego is enabled, clear BottomNavigationView, uncheck and disable other switches
+                clearOtherSwitches() // Uncheck other switches when Ego is selected
                 binding.bottomNavigationView.menu.clear()
                 binding.bottomNavigationView.visibility = BottomNavigationView.GONE
             } else {
-                // Ego is disabled, allow other switches to be enabled
+                // Ego is disabled, allow other switches to be enabled but remain unchecked
                 toggleOtherSwitches(true)
                 binding.bottomNavigationView.visibility = BottomNavigationView.VISIBLE
             }
@@ -49,19 +49,37 @@ class MainActivity : AppCompatActivity() {
 
         // Add or remove icons based on the state of each switch
         binding.toggleTeamSpirit.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) addIconToBottomNavigationBar(R.id.toggleTeamSpirit) else removeIconFromBottomNavigationBar(R.id.toggleTeamSpirit)
+            if (isChecked) {
+                binding.toggleEgo.isChecked = false
+                addIconToBottomNavigationBar(R.id.toggleTeamSpirit)
+            }
+            else removeIconFromBottomNavigationBar(R.id.toggleTeamSpirit)
         }
 
         binding.toggleConcentration.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) addIconToBottomNavigationBar(R.id.toggleConcentration) else removeIconFromBottomNavigationBar(R.id.toggleConcentration)
+            if (isChecked) {
+
+                binding.toggleEgo.isChecked = false
+                addIconToBottomNavigationBar(R.id.toggleConcentration)
+                }
+            else removeIconFromBottomNavigationBar(R.id.toggleConcentration)
         }
 
         binding.toggleLoyalty.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) addIconToBottomNavigationBar(R.id.toggleLoyalty) else removeIconFromBottomNavigationBar(R.id.toggleLoyalty)
+            if (isChecked)
+            {
+                binding.toggleEgo.isChecked = false
+                addIconToBottomNavigationBar(R.id.toggleLoyalty)
+            }
+            else removeIconFromBottomNavigationBar(R.id.toggleLoyalty)
         }
 
         binding.toggleDiscipline.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) addIconToBottomNavigationBar(R.id.toggleDiscipline) else removeIconFromBottomNavigationBar(R.id.toggleDiscipline)
+            if (isChecked) {
+                binding.toggleEgo.isChecked = false
+                addIconToBottomNavigationBar(R.id.toggleDiscipline)
+            }
+            else removeIconFromBottomNavigationBar(R.id.toggleDiscipline)
         }
     }
 
@@ -71,6 +89,14 @@ class MainActivity : AppCompatActivity() {
         binding.toggleConcentration.isEnabled = enable
         binding.toggleLoyalty.isEnabled = enable
         binding.toggleDiscipline.isEnabled = enable
+    }
+
+    // Uncheck all other switches when Ego is selected
+    private fun clearOtherSwitches() {
+        binding.toggleTeamSpirit.isChecked = false
+        binding.toggleConcentration.isChecked = false
+        binding.toggleLoyalty.isChecked = false
+        binding.toggleDiscipline.isChecked = false
     }
 
     private fun setupBottomNavigationBar() {
