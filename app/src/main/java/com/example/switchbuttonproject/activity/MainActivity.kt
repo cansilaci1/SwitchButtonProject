@@ -26,28 +26,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupSwitches() {
-        // "Ego" switch is unchecked initially
         binding.toggleEgo.isChecked = false
         toggleOtherSwitches(true) // Enable other switches as Ego is unchecked
         binding.bottomNavigationView.menu.clear() // Start with an empty BottomNavigationView
         binding.bottomNavigationView.visibility = BottomNavigationView.VISIBLE
 
-        // Set up listeners for the switches
         binding.toggleEgo.setOnCheckedChangeListener { _, isChecked ->
             isEgoEnabled = isChecked
             if (isChecked) {
-                // Ego is enabled, clear BottomNavigationView, uncheck and disable other switches
                 clearOtherSwitches() // Uncheck other switches when Ego is selected
                 binding.bottomNavigationView.menu.clear()
                 binding.bottomNavigationView.visibility = BottomNavigationView.GONE
             } else {
-                // Ego is disabled, allow other switches to be enabled but remain unchecked
                 toggleOtherSwitches(true)
                 binding.bottomNavigationView.visibility = BottomNavigationView.VISIBLE
             }
         }
 
-        // Add or remove icons based on the state of each switch
         binding.toggleTeamSpirit.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.toggleEgo.isChecked = false
@@ -83,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Only enable or disable the switches without affecting their visibility
     private fun toggleOtherSwitches(enable: Boolean) {
         binding.toggleTeamSpirit.isEnabled = enable
         binding.toggleConcentration.isEnabled = enable
@@ -91,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         binding.toggleDiscipline.isEnabled = enable
     }
 
-    // Uncheck all other switches when Ego is selected
     private fun clearOtherSwitches() {
         binding.toggleTeamSpirit.isChecked = false
         binding.toggleConcentration.isChecked = false
@@ -100,7 +93,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigationBar() {
-        // Set up navigation when items are selected
+
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.toggleTeamSpirit -> navigateToFragment(FragmentOne())
@@ -112,45 +105,46 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Dynamically add items to the BottomNavigationView
     private fun addIconToBottomNavigationBar(itemId: Int) {
         val menu = binding.bottomNavigationView.menu
 
-        // Prevent adding more than 5 items
         if (menu.size() >= 5) {
             return
         }
 
         when (itemId) {
             R.id.toggleTeamSpirit -> {
-                if (menu.findItem(R.id.toggleTeamSpirit) == null) { // Prevent duplicate items
+                if (menu.findItem(R.id.toggleTeamSpirit) == null) {
                     menu.add(0, R.id.toggleTeamSpirit, 0, "Team Spirit").setIcon(R.drawable.icon_home)
+                    navigateToFragment(FragmentOne())
                 }
             }
             R.id.toggleConcentration -> {
                 if (menu.findItem(R.id.toggleConcentration) == null) {
                     menu.add(0, R.id.toggleConcentration, 0, "Concentration").setIcon(R.drawable.icon_headphone)
+                    navigateToFragment(FragmentTwo())
+
                 }
             }
             R.id.toggleLoyalty -> {
                 if (menu.findItem(R.id.toggleLoyalty) == null) {
                     menu.add(0, R.id.toggleLoyalty, 0, "Loyalty").setIcon(R.drawable.icon_man)
+                    navigateToFragment(FragmentThree())
                 }
             }
             R.id.toggleDiscipline -> {
                 if (menu.findItem(R.id.toggleDiscipline) == null) {
                     menu.add(0, R.id.toggleDiscipline, 0, "Discipline").setIcon(R.drawable.icon_star)
+                    navigateToFragment(FragmentFour())
                 }
             }
         }
     }
 
-    // Dynamically remove items from the BottomNavigationView
     private fun removeIconFromBottomNavigationBar(itemId: Int) {
         binding.bottomNavigationView.menu.removeItem(itemId)
     }
 
-    // Navigate to a specific fragment when a menu item is selected
     private fun navigateToFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)

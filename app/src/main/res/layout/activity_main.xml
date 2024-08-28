@@ -5,52 +5,68 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".activity.MainActivity">
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleTeamSpirit"
+        android:text="@string/team_spirit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="false"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:trackTint="@drawable/switch_track_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"/>
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleConcentration"
+        android:text="@string/concentration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toggleTeamSpirit"
-        app:layout_constraintStart_toStartOf="@id/toggleTeamSpirit"
-        app:layout_constraintEnd_toEndOf="@id/toggleTeamSpirit"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:trackTint="@drawable/switch_track_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/toggleTeamSpirit"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleLoyalty"
+        android:text="@string/loyalty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toggleConcentration"
-        app:layout_constraintStart_toStartOf="@id/toggleConcentration"
-        app:layout_constraintEnd_toEndOf="@id/toggleConcentration"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:trackTint="@drawable/switch_track_color"
+        app:layout_constraintEnd_toEndOf="@id/toggleTeamSpirit"
+        app:layout_constraintStart_toStartOf="@id/toggleTeamSpirit"
+        app:layout_constraintTop_toBottomOf="@id/toggleTeamSpirit"
         android:layout_marginTop="16dp"/>
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleDiscipline"
+        android:text="@string/discipline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toggleLoyalty"
-        app:layout_constraintStart_toStartOf="@id/toggleLoyalty"
-        app:layout_constraintEnd_toEndOf="@id/toggleLoyalty"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:trackTint="@drawable/switch_track_color"
+        app:layout_constraintEnd_toEndOf="@id/toggleConcentration"
+        app:layout_constraintStart_toStartOf="@id/toggleConcentration"
+        app:layout_constraintTop_toBottomOf="@id/toggleConcentration"
         android:layout_marginTop="16dp"/>
 
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/toggleEgo"
+        android:text="@string/ego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toggleDiscipline"
-        app:layout_constraintStart_toStartOf="@id/toggleDiscipline"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:trackTint="@drawable/switch_track_color"
+        app:layout_constraintStart_toStartOf="@id/toggleLoyalty"
         app:layout_constraintEnd_toEndOf="@id/toggleDiscipline"
+        app:layout_constraintTop_toBottomOf="@id/toggleDiscipline"
         android:layout_marginTop="16dp"/>
 
 
@@ -64,7 +80,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- FragmentContainerView for fragments -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
