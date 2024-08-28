@@ -22,4 +22,8 @@ Her switch'in aktif olmasıyla birlikte ilgili menü ikonu eklenir ve kullanıc�
 
 
 ## Ekran Görüntüleri
-![Açılış Ekranı](https://github.com/user-attachments/assets/613eaa06-a4fd-42a2-90f4-678804a79a70)
+![Screenshot_1724879324](https://github.com/user-attachments/assets/25814c0f-b52c-4621-82d9-55529fb33fcd)
+![Screenshot_1724879326](https://github.com/user-attachments/assets/c32cf2be-2e3c-4db3-940e-4f134769a823)
+![Screenshot_1724879331](https://github.com/user-attachments/assets/3f39f947-bca0-419d-be3a-66d9f7eae50b)
+![Screenshot_1724879335](https://github.com/user-attachments/assets/b4c0c667-1c8d-4cd9-975f-b682314870b3)
+![Screenshot_1724879316](https://github.com/user-attachments/assets/aa18020e-cced-412d-8f7f-db207d276d1f)
