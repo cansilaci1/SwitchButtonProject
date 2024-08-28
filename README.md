@@ -30,16 +30,10 @@ Her switch'in aktif olmasıyla birlikte ilgili menü ikonu eklenir ve kullanıc�
 - **Android Jetpack**: Used for UI management and navigation.
 - **Material Components**: Used to provide a modern UI experience.
 - **ViewBinding**: Provides safe and fast access to UI components.
-  
-Clone the repository:
-   ```bash
-   git clone https://github.com/cansilaci1/SwitchButtonProject.git
 
-   
 ### About the Project
 This project is an Android application that allows users to toggle various functions using switch buttons. When a switch is activated, new menu items are dynamically added to the **BottomNavigationView**.
 
- 
 ## Screenshots
 <img src="https://github.com/user-attachments/assets/25814c0f-b52c-4621-82d9-55529fb33fcd" alt="Screenshot_1724879324" width="300" height="800">
 <img src="https://github.com/user-attachments/assets/c32cf2be-2e3c-4db3-940e-4f134769a823" alt="Screenshot_1724879326" width="300"height="800">
