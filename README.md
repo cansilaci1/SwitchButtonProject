@@ -21,7 +21,7 @@ Bu proje, kullanıcıların farklı switchler aracılığıyla çeşitli işlevl
 Uygulama, kullanıcıların belirli switch'leri açıp kapatmasıyla alt kısımda dinamik olarak **BottomNavigationView** menüsüne öğeler ekler.
 Her switch'in aktif olmasıyla birlikte ilgili menü ikonu eklenir ve kullanıcı ilgili fragmenta yönlendirilir.
 
-# Uygulamanın ui tasarımını bilerek böyle tasarladım.
+Uygulamanın ui tasarımını bilerek böyle tasarladım.
 
 [EN]
 
@@ -41,4 +41,4 @@ This project is an Android application that allows users to toggle various funct
 <img src="https://github.com/user-attachments/assets/b4c0c667-1c8d-4cd9-975f-b682314870b3" alt="Screenshot_1724879335" width="300"height="800">
 <img src="https://github.com/user-attachments/assets/aa18020e-cced-412d-8f7f-db207d276d1f" alt="Screenshot_1724879316" width="300"height="800">
 
-#I made the ui design this way purposely btw.
+I made the ui design this way purposely btw.
