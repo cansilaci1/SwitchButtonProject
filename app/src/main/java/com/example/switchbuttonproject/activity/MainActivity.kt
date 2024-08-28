@@ -27,14 +27,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupSwitches() {
         binding.toggleEgo.isChecked = false
-        toggleOtherSwitches(true) // Enable other switches as Ego is unchecked
-        binding.bottomNavigationView.menu.clear() // Start with an empty BottomNavigationView
+        toggleOtherSwitches(true)
+        binding.bottomNavigationView.menu.clear()
         binding.bottomNavigationView.visibility = BottomNavigationView.VISIBLE
 
         binding.toggleEgo.setOnCheckedChangeListener { _, isChecked ->
             isEgoEnabled = isChecked
             if (isChecked) {
-                clearOtherSwitches() // Uncheck other switches when Ego is selected
+                clearOtherSwitches()
+                clearFragmentContainer()
                 binding.bottomNavigationView.menu.clear()
                 binding.bottomNavigationView.visibility = BottomNavigationView.GONE
             } else {
@@ -47,34 +48,28 @@ class MainActivity : AppCompatActivity() {
             if (isChecked) {
                 binding.toggleEgo.isChecked = false
                 addIconToBottomNavigationBar(R.id.toggleTeamSpirit)
-            }
-            else removeIconFromBottomNavigationBar(R.id.toggleTeamSpirit)
+            } else removeIconFromBottomNavigationBar(R.id.toggleTeamSpirit)
         }
 
         binding.toggleConcentration.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-
                 binding.toggleEgo.isChecked = false
                 addIconToBottomNavigationBar(R.id.toggleConcentration)
-                }
-            else removeIconFromBottomNavigationBar(R.id.toggleConcentration)
+            } else removeIconFromBottomNavigationBar(R.id.toggleConcentration)
         }
 
         binding.toggleLoyalty.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked)
-            {
+            if (isChecked) {
                 binding.toggleEgo.isChecked = false
                 addIconToBottomNavigationBar(R.id.toggleLoyalty)
-            }
-            else removeIconFromBottomNavigationBar(R.id.toggleLoyalty)
+            } else removeIconFromBottomNavigationBar(R.id.toggleLoyalty)
         }
 
         binding.toggleDiscipline.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.toggleEgo.isChecked = false
                 addIconToBottomNavigationBar(R.id.toggleDiscipline)
-            }
-            else removeIconFromBottomNavigationBar(R.id.toggleDiscipline)
+            } else removeIconFromBottomNavigationBar(R.id.toggleDiscipline)
         }
     }
 
@@ -92,8 +87,14 @@ class MainActivity : AppCompatActivity() {
         binding.toggleDiscipline.isChecked = false
     }
 
-    private fun setupBottomNavigationBar() {
+    private fun clearFragmentContainer() {
+        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        fragment?.let {
+            supportFragmentManager.beginTransaction().remove(it).commit()
+        }
+    }
 
+    private fun setupBottomNavigationBar() {
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.toggleTeamSpirit -> navigateToFragment(FragmentOne())
@@ -123,7 +124,6 @@ class MainActivity : AppCompatActivity() {
                 if (menu.findItem(R.id.toggleConcentration) == null) {
                     menu.add(0, R.id.toggleConcentration, 0, "Concentration").setIcon(R.drawable.icon_headphone)
                     navigateToFragment(FragmentTwo())
-
                 }
             }
             R.id.toggleLoyalty -> {
@@ -142,7 +142,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun removeIconFromBottomNavigationBar(itemId: Int) {
-        binding.bottomNavigationView.menu.removeItem(itemId)
+        val menu = binding.bottomNavigationView.menu
+        menu.removeItem(itemId)
+
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+
+        if (currentFragment != null) {
+            when (itemId) {
+                R.id.toggleTeamSpirit -> if (currentFragment is FragmentOne) clearFragmentContainer()
+                R.id.toggleConcentration -> if (currentFragment is FragmentTwo) clearFragmentContainer()
+                R.id.toggleLoyalty -> if (currentFragment is FragmentThree) clearFragmentContainer()
+                R.id.toggleDiscipline -> if (currentFragment is FragmentFour) clearFragmentContainer()
+            }
+        }
     }
 
     private fun navigateToFragment(fragment: Fragment) {
